@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "build": "slidev build",
-    "dev": "slidev --open",
+    "dev": "slidev",
     "export": "slidev export"
   },
   "dependencies": {
     "@slidev/cli": "^0.44.0",
     "@slidev/theme-default": "latest",
-    "@slidev/theme-seriph": "latest"
+    "@types/d3": "^7.4.3",
+    "d3": "^7.8.5"
   }
 }
