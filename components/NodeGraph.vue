@@ -1,6 +1,6 @@
 <template>
     <div>
-        <svg class="NodeGraph w-full h-screen"></svg>
+        <svg class="NodeGraph"></svg>
     </div>
 </template>
 
@@ -8,89 +8,122 @@
 import * as d3 from "d3";
 
 export default {
-    mounted() {
-        const DUMMY_DATA = {
-            nodes:
-            [ {name: "A"}
-            , {name: "B"}
-            , {name: "C"}
-            , {name: "D"}
-            ],
-            edges:
-            [ {source:"A", target:"B"}
-            , {source:"B", target:"D"}
-            , {source:"A", target:"D"}
-            , {source:"C", target:"A"}
-            ]
-        };
+    props: {
+        data: {
+            required: false,
+            default: {
+                nodes:
+                    [ { name: "A" }
+                    , { name: "B" }
+                    , { name: "C" }
+                    , { name: "D" }
+                    ],
+                edges:
+                    [ { source: "A", target: "B" }
+                    , { source: "B", target: "D" }
+                    , { source: "A", target: "D" }
+                    , { source: "C", target: "A" }
+                    ]
+            }
+        },
+        width: {
+            default: 240
+        },
+        height: {
+            default: 80
+        }
+    },
+    data() {
+        return {
+            svg: null,
+            link: null,
+            node: null,
+            text: null,
+            simulation: null,
+        }
+    },
+    created() {
+        this.svg = d3
+            .select("svg.NodeGraph")
+            .attr("viewBox",  [0, 0, this.width, this.height])
 
-        let svg = d3.select("svg.NodeGraph")
-
-        const link = svg
+        this.link = this.svg
             .append("g")
             .selectAll("line")
-            .data(DUMMY_DATA.edges)
+            .data(this.data.edges)
             .enter()
             .append("line")
             .attr("stroke-width", "3")
             .style("stroke", "pink")
 
-        const node = svg
+        this.node = this.svg
             .append("g")
             .selectAll("circle")
-            .data(DUMMY_DATA.nodes)
+            .data(this.data.nodes)
             .enter()
             .append("circle")
             .attr("r", "15")
             .attr("fill", "orange")
 
-        node.call(d3.drag()
-            .on("start", dragstarted)
-            .on("drag", dragged)
-            .on("end", dragended));
+        this.node.call(d3.drag()
+            .on("start", this.dragstarted)
+            .on("drag",  this.dragged)
+            .on("end",   this.dragended))
 
+        this.text = this.svg
+            .append("g")
+            .attr("class", "text")
+            .selectAll("text")
+            .data(this.data.nodes)
+            .enter()
+            .append("text")
+            .text(d => d.name)
+            .classed("h1", true);
         
-        const simulation = d3
-            .forceSimulation(DUMMY_DATA.nodes)
-            .force("link", d3.forceLink(DUMMY_DATA.edges).id((d) => {
+        this.simulation = d3
+            .forceSimulation(this.data.nodes)
+            .force("link", d3.forceLink(this.data.edges).id((d) => {
                 return d.name
             }))
             .force("charge", d3.forceManyBody().strength(-300))
-            .force("center", d3.forceCenter(200, 200))
-            .on("tick", ticked)
+            .force("center", d3.forceCenter(this.width/2, this.height/2))
+            .on("tick", this.ticked)
 
-        function ticked() {
-            link
+    },
+    methods: {
+        ticked() {
+            this.link
                 .attr("x1", d => d.source.x)
                 .attr("y1", d => d.source.y)
                 .attr("x2", d => d.target.x)
                 .attr("y2", d => d.target.y)
-            
-            node
+
+            this.node
                 .attr("cx", d => d.x)
                 .attr("cy", d => d.y)
-        }
 
-        function dragstarted(event) {
-            if (!event.active) simulation.alphaTarget(0.3).restart();
+            this.text
+                .attr("x", d => d.x + 10)
+                .attr("y", d => d.y - 10)
+        },
+
+        dragstarted(event) {
+            if (!event.active) this.simulation.alphaTarget(0.3).restart();
             event.subject.fx = event.subject.x;
             event.subject.fy = event.subject.y;
-        }
+        },
 
-        // Update the subject (dragged node) position during drag.
-        function dragged(event) {
+        dragged(event) {
             event.subject.fx = event.x;
             event.subject.fy = event.y;
-        }
+        },
 
-        // Restore the target alpha so the simulation cools after dragging ends.
-        // Unfix the subject position now that it’s no longer being dragged.
-        function dragended(event) {
-            if (!event.active) simulation.alphaTarget(0);
+        dragended(event) {
+            if (!event.active) this.simulation.alphaTarget(0);
             event.subject.fx = null;
             event.subject.fy = null;
         }
-    },
+    }
 };
 </script>
 
