@@ -1,6 +1,6 @@
 <template>
     <div>
-        <svg class="NodeGraph"></svg>
+        <svg :class="[uuid]"></svg>
     </div>
 </template>
 
@@ -35,6 +35,7 @@ export default {
     },
     data() {
         return {
+            uuid: null,
             svg: null,
             link: null,
             node: null,
@@ -42,10 +43,14 @@ export default {
             simulation: null,
         }
     },
+    beforeCreate() {
+        this.uuid = "uuid-" + crypto.randomUUID()
+    },
     created() {
         this.svg = d3
-            .select("svg.NodeGraph")
-            .attr("viewBox",  [0, 0, this.width, this.height])
+            .select("svg." + this.uuid)
+            .attr("width",  this.width)
+            .attr("height", this.height)
 
         this.link = this.svg
             .append("g")

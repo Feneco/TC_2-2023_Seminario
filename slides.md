@@ -31,14 +31,14 @@ author: Wagner Clemente Coelho Batalha
 
 ---
 
-# Problema do Caminho Hamiltoniano
+# Page 1
 
-Dado um grafo, dizer se tem um caminho hamiltoniano
-
-## Caminho Hamiltoniano
-
-## Ciclo Hamiltoniano
+<NodeGraph />
 
 ---
-src: ./pages/graph1.md
----
+
+# Page 2
+
+<NodeGraph />
+
+<NodeGraph />
