@@ -1,6 +1,7 @@
 ---
 title: Problema do Caminho Hamiltoniano
 author: Wagner Clemente Coelho Batalha
+monaco: true
 ---
 
 # Problema do Caminho Hamiltoniano
@@ -11,34 +12,25 @@ author: Wagner Clemente Coelho Batalha
     <div> | </div> 
     <div> Matrícula: 20/0044486 </div>
   </div>
-
-  <div class="opacity-50">
-    <div class="flex basis-full gap-3 text-sm">
-      Professor: Thiago de Paulo Faleiros 
-    </div>
-  </div>
-
 </div>
 
 
 <div class="abs-bl mx-14 my-12 flex">
   <img src="/as_vert_cor.jpg" class="h-8">
   <div class="ml-3 flex flex-col text-left">
-    <div>Seminário de teoria da computação</div>
-    <div class="text-sm opacity-50">Turma 01 | 2/2023 | data</div>
+    <div>Seminário de Teoria da Computação</div>
+    <div class="text-sm opacity-50">Turma 01 | Professor: Thiago de Paulo Faleiros | 2/2023 | <Today /> </div>
   </div>
 </div>
 
 ---
-
-# Page 1
-
-<NodeGraph />
-
+src: ./pages/intro.md
 ---
 
-# Page 2
+---
+src: ./pages/provaNPCompleto.md
+---
 
-<NodeGraph />
-
-<NodeGraph />
+---
+src: ./pages/referencias.md
+---
