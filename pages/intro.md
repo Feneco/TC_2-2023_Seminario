@@ -60,7 +60,7 @@ layout: two-cols
 ### Computação gráfica
 
 
-<img src="car1.png" class="h-90">
+<img src="/car1.png" class="h-90">
 
 modelo por Ivan Norman
 
@@ -71,7 +71,7 @@ modelo por Ivan Norman
 ### Computação gráfica
 
 
-<img src="car2.png" class="h-90">
+<img src="/car2.png" class="h-90">
 
 modelo por Ivan Norman
 
@@ -82,7 +82,7 @@ modelo por Ivan Norman
 ### Computação gráfica
 
 
-<img src="car3.png" class="h-90">
+<img src="/car3.png" class="h-90">
 
 modelo por Ivan Norman
 
