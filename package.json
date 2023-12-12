@@ -8,15 +8,16 @@
     "export": "slidev export"
   },
   "dependencies": {
+    "@livereader/graphly-d3-vue": "^1.1.2",
     "@slidev/cli": "^0.44.0",
     "@slidev/theme-default": "latest",
-    "@types/d3": "^7.4.3",
+    "chroma-js": "^2.4.2",
     "d3": "^7.8.5",
     "graphology": "^0.25.4",
     "sigma": "^3.0.0-alpha3",
-    "vue-cytoscape": "^1.0.8"
+    "vue-d3-network": "^0.1.28"
   },
   "devDependencies": {
-    "cytoscape": "^3.27.0"
+    "sass": "^1.69.5"
   }
 }

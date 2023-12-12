@@ -94,3 +94,5 @@ modelo por Ivan Norman
 ### Problema do caixeiro viajante
 
 Encontrar todos os Ciclos Hamiltonianos e dar uma nota a cada um
+
+### Diversos tipos de grafos tem ciclos ou caminhos

@@ -60,7 +60,7 @@ $$ {all|1|2|3|all}
     \begin {array}{c}
               & \underset{C_1}{\left( x_1 \lor x_2 \lor x_3 \right)} \\
         \land & \underset{C_2}{\left( \overline{x_1} \lor x_2 \lor \overline{x_4} \right)} \\
-        \land & \underset{C_3}{\left( \overline{x_2} \lor \overline{x_3} \lor x_4 \right)} \\ & \cdots
+        \land & \underset{C_3}{\left( \overline{x_2} \lor \overline{x_3} \lor x_4 \right)}
     \end {array}
 $$
 
@@ -97,5 +97,35 @@ layout: two-cols
 Adiciona-se as cláusulas
 
 <div>
-    <img src="/gadget3.png" class="h-110">
+    <img src="/gadget3.png" class="h-100">
 </div>
+
+::right::
+
+Conectando as cláusulas à buginganga
+
+$$ {1-2}
+    \begin {array}{c}
+              & \underset{C_1}{\left( \textcolor{#288c6b}{x_1} \lor x_2 \lor x_3 \right)} \\
+        \land & \underset{C_2}{\left( \textcolor{#e50cc1}{\overline{x_1}} \lor x_2 \lor \overline{x_4} \right)} \\
+        \land & \underset{C_3}{\left( \overline{x_2} \lor \overline{x_3} \lor x_4 \right)}
+    \end {array}
+$$
+
+<div>
+    <img src="/gadget4.png" class="h-70">
+</div>
+
+---
+layout: two-cols
+---
+
+Solução completa
+
+<div>
+    <img src="/gadget5.png" class="h-110">
+</div>
+
+::right::
+
+Tente algumas combinações de variáveis!
