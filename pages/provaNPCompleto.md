@@ -1,16 +1,31 @@
-# Prova que é NP completo
+---
+layout: image-right
+image: https://source.unsplash.com/collection/94734566/1920x1080
+---
+
+# Problema do Caminho Hamiltoniano é NP completo
+
+
+Temos que provar 4 coisas:
+
+<v-clicks>
+
+1. É um problema de decisão;
+1. Tem um certificado de solução Polinomial;
+1. Tem um verificador do certificado Polinomial;
+1. Tem que ter um problema em NP redutível para Caminho Hamiltoniano.
+
+</v-clicks>
+
+---
+
+### 1. É um problema de decisão
+
+**É / Não É** um caminho hamiltoniano
 
 <v-click>
 
-## 1. É um problema de decisão
-
-` [ É | Não é ] ` um caminho hamiltoniano
-
-</v-click>
-
-<v-click>
-
-## 2. Tem Certificado P
+### 2. Tem Certificado P
 
 Lista em ordem de vértices visitados
 
@@ -30,7 +45,7 @@ polinomial
 
 <v-click>
 
-## 3. Tem Verificador P
+### 3. Tem Verificador P
 
 Visitar cada vértice do certificado e verificar se tem como chegar no próximo da lista. Verifica também se não há repetições de vértices.  No final verifica se todos os vértices foram visitados.
 
@@ -46,25 +61,30 @@ Também polinomial
 
 ---
 
-## 4. É reduzível a um problema que ja está em NP
+### 4. É reduzível a um problema que ja está em NP
+
+Podemos fazer a redução de 3-Satisfabilidade para o caminho Hamiltoninao
 
 $$
-    3SAT \le_p HamiltonianPath
+    3SAT \le_p CaminhoHamiltoniano
 $$
 
 <v-click>
 
-### 3-SAT
+#### Explicação de 3-SAT
+
+3-SAT é um caso especial de SAT que deve obedecer a forma abaixo.
+
 
 $$ {all|1|2|3|all}
     \begin {array}{c}
-              & \underset{C_1}{\left( x_1 \lor x_2 \lor x_3 \right)} \\
-        \land & \underset{C_2}{\left( \overline{x_1} \lor x_2 \lor \overline{x_4} \right)} \\
-        \land & \underset{C_3}{\left( \overline{x_2} \lor \overline{x_3} \lor x_4 \right)}
+              & \overbrace{\left( x_1 \lor x_2 \lor x_3 \right)}^{C_1} \\
+        \land & \overbrace{\left( \overline{x_1} \lor x_2 \lor \overline{x_4} \right)}^{C_2} \\
+        \land & \overbrace{\left( \overline{x_2} \lor \overline{x_3} \lor x_4 \right)}^{C_3}
     \end {array}
 $$
 
-3-SAT é um caso especial de SAT que deve obedecer a forma acima
+Podem existir N cláusulas e M variáveis. Toda cláusula é composta 3 variáveis.
 
 </v-click>
 
@@ -78,17 +98,19 @@ layout: two-cols
 
 Para uma variável:
 
-<div>
-    <img src="/gadget1.png" class="h-80">
-</div>
+<Center>
+    <img src="/gadget1.png" class="h-70">
+</Center>
+
+O caminho hamiltoniano acima só existe se passar pelos nós do "meio".
 
 ::right::
 
-Em sequência:
+Conectando uma buginganga na outra
 
-<div>
+<Center>
     <img src="/gadget2.png" class="h-110">
-</div>
+</Center>
 
 ---
 layout: two-cols
@@ -96,9 +118,9 @@ layout: two-cols
 
 Adiciona-se as cláusulas
 
-<div>
+<Center>
     <img src="/gadget3.png" class="h-100">
-</div>
+</Center>
 
 ::right::
 
@@ -112,15 +134,23 @@ $$ {1-2}
     \end {array}
 $$
 
-<div>
-    <img src="/gadget4.png" class="h-70">
-</div>
+
+
+<Center>
+    <img src="/gadget4.png" class="h-60">
+</Center>
+
+<v-click>
+
+<Arrow x1="10" y1="450" x2="150" y2="350" />
+
+Observe a direção das conexões
+
+</v-click>
 
 ---
 layout: two-cols
 ---
-
-Solução completa
 
 <div>
     <img src="/gadget5.png" class="h-110">
@@ -128,4 +158,8 @@ Solução completa
 
 ::right::
 
+### Solução completa
+
 Tente algumas combinações de variáveis!
+
+<span class="opacity-30"> (O Ciclo Hamiltoniano também está em NP) </span>

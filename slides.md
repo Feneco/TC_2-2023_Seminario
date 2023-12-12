@@ -1,7 +1,6 @@
 ---
 title: Problema do Caminho Hamiltoniano
 author: Wagner Clemente Coelho Batalha
-monaco: true
 ---
 
 # Problema do Caminho Hamiltoniano
@@ -23,12 +22,17 @@ monaco: true
   </div>
 </div>
 
+
 ---
 src: ./pages/intro.md
 ---
 
 ---
 src: ./pages/provaNPCompleto.md
+---
+
+---
+src: ./pages/conclusao.md
 ---
 
 ---
