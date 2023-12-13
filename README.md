@@ -10,7 +10,7 @@ Para iniciar o slideshow:
 - `npm run dev`
 - visitar http://localhost:3030
 
-Edite os arquivo markdown para visualizar as suas mudanças.
+Edite os arquivos markdown para visualizar as suas mudanças.
 
 Aprenda mais sobre o Slidev na [documentação](https://sli.dev/).
 
