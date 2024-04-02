@@ -8,10 +8,10 @@
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "^0.44.0",
-    "@slidev/theme-default": "latest"
+    "@slidev/cli": "^0.48.8",
+    "@slidev/theme-default": "^0.25.0"
   },
   "devDependencies": {
-    "sass": "^1.69.5"
+    "sass": "^1.72.0"
   }
 }
