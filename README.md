@@ -4,13 +4,13 @@ Clique [aqui](https://feneco.github.io/TC_2-2023_Seminario/1) para visualizar a 
 
 Apresentação por Wagner Clemente Coelho Batalha do seminário da turma 01 de Teoria da Computação do segundo semestre de 2023, ministrada pelo professor Thiago de Paulo Faleiros.
 
-Para iniciar o slideshow:
+Para iniciar o slideshow, primeiro você deve ter o Node instalado, depois disso é só clonar o repositório e usar os comandos:
 
-- `npm i`
-- `npm run dev`
-- visitar http://localhost:3030
+1. `npm i`
+2. `npm run dev`
+3. Visitar o link fornecido no terminal
 
-Edite os arquivos markdown para visualizar as suas mudanças.
+Edite os arquivos markdown para visualizar as suas mudanças ao vivo.
 
 Aprenda mais sobre o Slidev na [documentação](https://sli.dev/).
 
